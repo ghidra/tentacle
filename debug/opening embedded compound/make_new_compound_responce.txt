@@ -1,0 +1,1 @@
+{"type":"tentacle_compound","read_type":"embedded","render_type":"standard","compound_id":0,"out_ports":["result"],"index":"2","label":"new_compound","result":"","mode":0,"left":0,"top":0,"number_ports":1,"ports":"content","in_ports":{"compound attributes":{"content0":{"type":"string","exposed":1}}},"color_main":"#CD8C4E","color_alt":"#E1771E"}

@@ -1,0 +1,41 @@
+
+--get this all in github
+
+************************
+--alpha---------
+------------------------------------------------------
+--saving isnt grabbing the "content" ports, so when it comes back in, it doesnt have that info
+
+-compounds
+    --make compound
+        --connect outside connections
+        --inside not getting making node when openning (look like it has the data though)
+    
+    --edit inputs and outputs
+    --edit compounds name
+
+    --save
+
+---saving bugged
+---node "a" is not keeing the drop down for 'target' variable, but is keeping it for other drop downs?
+---there is a permission issue when writing files. I just need to force it or something
+
+
+
+*****************************
+--want list----------
+-----------------------
+
+
+-node search
+-nodes are in folders
+
+
+
+
+
+
+
+
+
+

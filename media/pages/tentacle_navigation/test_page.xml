@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node_file type="tentacle" group="page" name="latest" tasks="build latest page" author="jimmy gass" version="1.0" bgcolor="">
+	<description>This is a custom built page for the latest page.</description>
+	<definition>
+		<nodes>
+			<node type="div" index="0" mode="0">
+				<param name="style" value=""></param>
+				<guidef left="378" top="230" number_ports="1"></guidef>
+			</node>
+		</nodes>
+		<exposed_ports>
+			<port index="0" name="result" label="result" type="out" ></port>
+			<exedef left="752" top="154" ></exedef>
+		</exposed_ports>
+		<connections>
+		</connections>
+	</definition>
+</node_file>

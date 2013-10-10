@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node_file type="tentacle" group="page" name="latest" tasks="build latest page" author="jimmy gass" version="1.0" bgcolor="">
+	<description>This is a custom built page for the latest page.</description>
+	<definition>
+		<nodes>
+			<node type="[embedded_0]" index="0" mode="0">
+				<param name="string" value="this is the mothafucking value"></param>
+				<guidef left="592" top="235" number_ports="0"></guidef>
+			</node>
+			<node type="legend" index="1" mode="0">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="legend" value=""></param>
+				<guidef left="389" top="255" number_ports="0"></guidef>
+			</node>
+			<node type="div" index="2" mode="0">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<guidef left="250" top="140" number_ports="1"></guidef>
+			</node>
+		</nodes>
+		<exposed_ports>
+			<port index="0" name="result" label="result" type="out" ></port>
+			<exedef left="803" top="204" ></exedef>
+		</exposed_ports>
+		<connections>
+		</connections>
+	</definition>
+	<embedded_0 name="embedded_compound">
+		<description></description>
+		<nodes>
+			<node type="div" index="0" mode="0">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<guidef left="520" top="136" number_ports="2"></guidef>
+			</node>
+			<node type="div" index="1" mode="0">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<guidef left="436" top="239" number_ports="1"></guidef>
+			</node>
+			<node type="text_short" index="2" mode="0">
+				<param name="string" value="compound rebuild"></param>
+				<guidef left="280" top="280" number_ports="0"></guidef>
+			</node>
+			<node type="background" index="3" mode="0">
+				<param name="color" value="red"></param>
+				<param name="image" value=""></param>
+				<param name="repeat" value="repeat"></param>
+				<param name="attachment" value="scroll"></param>
+				<param name="position" value="top left"></param>
+				<guidef left="316" top="86" number_ports="0"></guidef>
+			</node>
+			<node type="format_text" index="4" mode="0">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="format" value="italic"></param>
+				<param name="content0" value=""></param>
+				<guidef left="416" top="362" number_ports="1"></guidef>
+			</node>
+		</nodes>
+		<exposed_ports>
+			<port index="0" name="result" label="result" type="out" ></port>
+			<port index="2" name="string" label="string" type="in" ></port>
+			<exedef left="0" top="0" ></exedef>
+		</exposed_ports>
+		<connections>
+			<cnx from_node="1" from_port="result" to_node="0" to_port="content0"></cnx>
+			<cnx from_node="3" from_port="result" to_node="0" to_port="style"></cnx>
+			<cnx from_node="2" from_port="result" to_node="1" to_port="content0"></cnx>
+			<cnx from_node="4" from_port="result" to_node="0" to_port="content1"></cnx>
+		</connections>
+	</embedded_0>
+</node_file>

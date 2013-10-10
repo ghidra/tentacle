@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node_file type="tentacle" group="page" name="latest" tasks="build latest page" author="jimmy gass" version="1.0" bgcolor="">
+	<description>This is a custom built page for the latest page.</description>
+	<definition>
+		<nodes>
+			<node type="html_page" index="0" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="pagetitle" value="nervegass"></param>
+				<param name="head" value="_in"></param>
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<param name="content2" value=""></param>
+				<guidef left="1795" top="381" number_ports="3"></guidef>
+			</node>
+			<node type="link_ext" index="1" mode="1">
+				<param name="href" value="tentacle/css/04.css"></param>
+				<param name="path" value="local"></param>
+				<param name="ftype" value="css"></param>
+				<param name="rel" value="stylesheet"></param>
+				<param name="rev" value="none"></param>
+				<guidef left="1459" top="219" number_ports="0"></guidef>
+			</node>
+			<node type="div" index="2" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value="paBG"></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<param name="content2" value=""></param>
+				<guidef left="1646" top="436" number_ports="3"></guidef>
+			</node>
+			<node type="div" index="3" mode="">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value="_in"></param>
+				<param name="content0" value=""></param>
+				<guidef left="1340" top="903" number_ports="1"></guidef>
+			</node>
+			<node type="text_short" index="4" mode="">
+				<param name="string" value="nervegass"></param>
+				<guidef left="450" top="795" number_ports="0"></guidef>
+			</node>
+			<node type="div" index="5" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value="head_logo"></param>
+				<param name="style" value="_in"></param>
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<param name="content2" value=""></param>
+				<param name="content3" value=""></param>
+				<guidef left="1110" top="402" number_ports="4"></guidef>
+			</node>
+			<node type="a" index="6" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value="_in"></param>
+				<param name="href" value="."></param>
+				<param name="path" value="local"></param>
+				<param name="target" value="_self"></param>
+				<param name="framename" value=""></param>
+				<param name="name" value=""></param>
+				<param name="tabindex" value="int"></param>
+				<param name="accesskey" value=""></param>
+				<param name="rel" value="none"></param>
+				<param name="rev" value="none"></param>
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<guidef left="636" top="780" number_ports="2"></guidef>
+			</node>
+			<node type="tentacle_page" index="7" mode="">
+				<guidef left="1234" top="992" number_ports="0"></guidef>
+			</node>
+			<node type="tentacle_navigation" index="8" mode="1">
+				<param name="vstack" value="99"></param>
+				<param name="showhidden" value="false"></param>
+				<param name="id" value=""></param>
+				<param name="class" value="nav_but"></param>
+				<param name="style" value=""></param>
+				<param name="title" value=""></param>
+				<param name="sid" value=""></param>
+				<param name="sclass" value="nav_sel"></param>
+				<param name="sstyle" value=""></param>
+				<param name="stitle" value=""></param>
+				<param name="pid" value=""></param>
+				<param name="pclass" value="nav_column"></param>
+				<param name="pstyle" value=""></param>
+				<param name="ptitle" value=""></param>
+				<guidef left="829" top="822" number_ports="0"></guidef>
+			</node>
+			<node type="head_stack" index="9" mode="">
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<param name="content2" value=""></param>
+				<guidef left="1562" top="229" number_ports="3"></guidef>
+			</node>
+			<node type="meta" index="10" mode="1">
+				<param name="name" value="author"></param>
+				<param name="content0" value="jimmy gass"></param>
+				<param name="httpequiv" value="none"></param>
+				<guidef left="1458" top="266" number_ports="1"></guidef>
+			</node>
+			<node type="dimension" index="11" mode="1">
+				<param name="dimension" value="width"></param>
+				<param name="length" value="91"></param>
+				<param name="measure" value="px"></param>
+				<guidef left="853" top="263" number_ports="0"></guidef>
+			</node>
+			<node type="br" index="12" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<guidef left="833" top="510" number_ports="0"></guidef>
+			</node>
+			<node type="color" index="13" mode="">
+				<param name="color" value="white"></param>
+				<guidef left="533" top="743" number_ports="0"></guidef>
+			</node>
+			<node type="font" index="14" mode="1">
+				<param name="style" value="normal"></param>
+				<param name="variant" value="normal"></param>
+				<param name="weight" value="normal"></param>
+				<param name="size" value="length"></param>
+				<param name="slength" value="17"></param>
+				<param name="smeasure" value="px"></param>
+				<param name="llength" value="0"></param>
+				<param name="lmeasure" value="px"></param>
+				<param name="family" value="couier new"></param>
+				<guidef left="396" top="340" number_ports="0"></guidef>
+			</node>
+			<node type="css_stack" index="15" mode="">
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<param name="content2" value=""></param>
+				<param name="content3" value=""></param>
+				<guidef left="511" top="330" number_ports="4"></guidef>
+			</node>
+			<node type="div" index="16" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value="_in"></param>
+				<param name="content0" value=""></param>
+				<guidef left="834" top="562" number_ports="1"></guidef>
+			</node>
+			<node type="background_color" index="17" mode="1">
+				<param name="color" value="red"></param>
+				<guidef left="389" top="385" number_ports="0"></guidef>
+			</node>
+			<node type="dimension" index="18" mode="1">
+				<param name="dimension" value="height"></param>
+				<param name="length" value="100"></param>
+				<param name="measure" value="px"></param>
+				<guidef left="395" top="302" number_ports="0"></guidef>
+			</node>
+			<node type="text_short" index="19" mode="">
+				<param name="string" value=".net"></param>
+				<guidef left="442" top="901" number_ports="0"></guidef>
+			</node>
+			<node type="div" index="20" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<guidef left="538" top="795" number_ports="1"></guidef>
+			</node>
+			<node type="div" index="21" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value="_in"></param>
+				<param name="content0" value=""></param>
+				<guidef left="541" top="866" number_ports="1"></guidef>
+			</node>
+			<node type="css_stack" index="22" mode="1">
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<guidef left="442" top="853" number_ports="2"></guidef>
+			</node>
+			<node type="float" index="23" mode="1">
+				<param name="float" value="left"></param>
+				<guidef left="351" top="845" number_ports="0"></guidef>
+			</node>
+			<node type="margin" index="24" mode="1">
+				<param name="tlength" value="-8"></param>
+				<param name="tmeasure" value="px"></param>
+				<param name="rlength" value="0"></param>
+				<param name="rmeasure" value="px"></param>
+				<param name="blength" value="0"></param>
+				<param name="bmeasure" value="px"></param>
+				<param name="llength" value="0"></param>
+				<param name="lmeasure" value="px"></param>
+				<guidef left="351" top="893" number_ports="0"></guidef>
+			</node>
+			<node type="margin" index="25" mode="1">
+				<param name="tlength" value="2"></param>
+				<param name="tmeasure" value="px"></param>
+				<param name="rlength" value="0"></param>
+				<param name="rmeasure" value="px"></param>
+				<param name="blength" value="0"></param>
+				<param name="bmeasure" value="px"></param>
+				<param name="llength" value="0"></param>
+				<param name="lmeasure" value="px"></param>
+				<guidef left="406" top="438" number_ports="0"></guidef>
+			</node>
+			<node type="a" index="26" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="href" value="wiki"></param>
+				<param name="path" value="local"></param>
+				<param name="target" value="_self"></param>
+				<param name="framename" value=""></param>
+				<param name="name" value=""></param>
+				<param name="tabindex" value="int"></param>
+				<param name="accesskey" value=""></param>
+				<param name="rel" value="none"></param>
+				<param name="rev" value="none"></param>
+				<param name="content0" value=""></param>
+				<guidef left="510" top="1233" number_ports="1"></guidef>
+			</node>
+			<node type="text_short" index="27" mode="">
+				<param name="string" value="wiki"></param>
+				<guidef left="423" top="1234" number_ports="0"></guidef>
+			</node>
+			<node type="div" index="28" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value="nav_but"></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<guidef left="598" top="1230" number_ports="1"></guidef>
+			</node>
+			<node type="div" index="29" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value="nav_column"></param>
+				<param name="style" value=""></param>
+				<param name="content0" value=""></param>
+				<guidef left="689" top="1228" number_ports="1"></guidef>
+			</node>
+			<node type="div" index="30" mode="1">
+				<param name="id" value=""></param>
+				<param name="title" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value="_in"></param>
+				<param name="content0" value=""></param>
+				<guidef left="957" top="779" number_ports="1"></guidef>
+			</node>
+			<node type="clear" index="31" mode="1">
+				<param name="clear" value="left"></param>
+				<guidef left="775" top="752" number_ports="0"></guidef>
+			</node>
+			<node type="css_stack" index="32" mode="1">
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<guidef left="865" top="758" number_ports="2"></guidef>
+			</node>
+			<node type="margin" index="33" mode="1">
+				<param name="tlength" value="1"></param>
+				<param name="tmeasure" value="px"></param>
+				<param name="rlength" value="0"></param>
+				<param name="rmeasure" value="px"></param>
+				<param name="blength" value="0"></param>
+				<param name="bmeasure" value="px"></param>
+				<param name="llength" value="0"></param>
+				<param name="lmeasure" value="px"></param>
+				<guidef left="776" top="790" number_ports="0"></guidef>
+			</node>
+			<node type="db_image" index="34" mode="0">
+				<param name="id" value=""></param>
+				<param name="class" value=""></param>
+				<param name="style" value=""></param>
+				<param name="link" value="image_repo/ng_white.png"></param>
+				<guidef left="837" top="362" number_ports="0"></guidef>
+			</node>
+			<node type="css_stack" index="35" mode="">
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<param name="content2" value=""></param>
+				<guidef left="1230" top="903" number_ports="3"></guidef>
+			</node>
+			<node type="margin" index="36" mode="1">
+				<param name="tlength" value="0"></param>
+				<param name="tmeasure" value="px"></param>
+				<param name="rlength" value="0"></param>
+				<param name="rmeasure" value="px"></param>
+				<param name="blength" value="0"></param>
+				<param name="bmeasure" value="px"></param>
+				<param name="llength" value="0"></param>
+				<param name="lmeasure" value="px"></param>
+				<guidef left="1136" top="947" number_ports="0"></guidef>
+			</node>
+			<node type="padding" index="37" mode="1">
+				<param name="tlength" value="0"></param>
+				<param name="tmeasure" value="px"></param>
+				<param name="rlength" value="0"></param>
+				<param name="rmeasure" value="px"></param>
+				<param name="blength" value="0"></param>
+				<param name="bmeasure" value="px"></param>
+				<param name="llength" value="95"></param>
+				<param name="lmeasure" value="px"></param>
+				<guidef left="1138" top="909" number_ports="0"></guidef>
+			</node>
+			<node type="css_stack" index="38" mode="">
+				<param name="content0" value=""></param>
+				<param name="content1" value=""></param>
+				<guidef left="954" top="262" number_ports="2"></guidef>
+			</node>
+			<node type="float" index="39" mode="1">
+				<param name="float" value="left"></param>
+				<guidef left="851" top="298" number_ports="0"></guidef>
+			</node>
+			<node type="google_analytics" index="40" mode="1">
+				<param name="code" value="new"></param>
+				<param name="id" value="UA-3007503-1"></param>
+				<guidef left="1643" top="486" number_ports="0"></guidef>
+			</node>
+			<node type="float" index="41" mode="">
+				<param name="float" value="left"></param>
+				<guidef left="960" top="960" number_ports="0"></guidef>
+			</node>
+			<node type="script" index="42" mode="1">
+				<param name="src" value="tentacle/js/flash/AC_RunActiveContent.js"></param>
+				<param name="stype" value="javascript"></param>
+				<param name="body" value=""></param>
+				<guidef left="1369" top="315" number_ports="0"></guidef>
+			</node>
+		</nodes>
+		<exposed_ports>
+			<port index="0" name="result" label="result" type="out" ></port>
+			<exedef left="1890" top="378" ></exedef>
+		</exposed_ports>
+		<connections>
+			<cnx from_node="1" from_port="result" to_node="9" to_port="content0" ></cnx>
+			<cnx from_node="7" from_port="result" to_node="3" to_port="content0" ></cnx>
+			<cnx from_node="10" from_port="result" to_node="9" to_port="content1" ></cnx>
+			<cnx from_node="9" from_port="result" to_node="0" to_port="head" ></cnx>
+			<cnx from_node="4" from_port="result" to_node="20" to_port="content0" ></cnx>
+			<cnx from_node="12" from_port="result" to_node="5" to_port="content1" ></cnx>
+			<cnx from_node="15" from_port="result" to_node="16" to_port="style" ></cnx>
+			<cnx from_node="13" from_port="result" to_node="6" to_port="style" ></cnx>
+			<cnx from_node="14" from_port="result" to_node="15" to_port="content1" ></cnx>
+			<cnx from_node="16" from_port="result" to_node="5" to_port="content2" ></cnx>
+			<cnx from_node="6" from_port="result" to_node="16" to_port="content0" ></cnx>
+			<cnx from_node="17" from_port="result" to_node="15" to_port="content2" ></cnx>
+			<cnx from_node="18" from_port="result" to_node="15" to_port="content0" ></cnx>
+			<cnx from_node="20" from_port="result" to_node="6" to_port="content0" ></cnx>
+			<cnx from_node="21" from_port="result" to_node="6" to_port="content1" ></cnx>
+			<cnx from_node="19" from_port="result" to_node="21" to_port="content0" ></cnx>
+			<cnx from_node="22" from_port="result" to_node="21" to_port="style" ></cnx>
+			<cnx from_node="23" from_port="result" to_node="22" to_port="content0" ></cnx>
+			<cnx from_node="24" from_port="result" to_node="22" to_port="content1" ></cnx>
+			<cnx from_node="25" from_port="result" to_node="15" to_port="content3" ></cnx>
+			<cnx from_node="26" from_port="result" to_node="28" to_port="content0" ></cnx>
+			<cnx from_node="27" from_port="result" to_node="26" to_port="content0" ></cnx>
+			<cnx from_node="28" from_port="result" to_node="29" to_port="content0" ></cnx>
+			<cnx from_node="5" from_port="result" to_node="2" to_port="content0" ></cnx>
+			<cnx from_node="3" from_port="result" to_node="2" to_port="content2" ></cnx>
+			<cnx from_node="2" from_port="result" to_node="0" to_port="content0" ></cnx>
+			<cnx from_node="30" from_port="result" to_node="5" to_port="content3" ></cnx>
+			<cnx from_node="32" from_port="result" to_node="30" to_port="style" ></cnx>
+			<cnx from_node="31" from_port="result" to_node="32" to_port="content0" ></cnx>
+			<cnx from_node="33" from_port="result" to_node="32" to_port="content1" ></cnx>
+			<cnx from_node="34" from_port="result" to_node="5" to_port="content0" ></cnx>
+			<cnx from_node="8" from_port="result" to_node="30" to_port="content0" ></cnx>
+			<cnx from_node="35" from_port="result" to_node="3" to_port="style" ></cnx>
+			<cnx from_node="36" from_port="result" to_node="35" to_port="content2" ></cnx>
+			<cnx from_node="38" from_port="result" to_node="5" to_port="style" ></cnx>
+			<cnx from_node="11" from_port="result" to_node="38" to_port="content0" ></cnx>
+			<cnx from_node="39" from_port="result" to_node="38" to_port="content1" ></cnx>
+			<cnx from_node="40" from_port="result" to_node="0" to_port="content2" ></cnx>
+			<cnx from_node="37" from_port="result" to_node="35" to_port="content1" ></cnx>
+			<cnx from_node="42" from_port="result" to_node="9" to_port="content2" ></cnx>
+		</connections>
+	</definition>
+</node_file>
