@@ -389,8 +389,8 @@ tentacle.selection = {
 			//----an objecet to hold my out ports for creating a new compound
 			//var out_ports_object={};
             var out_ports_object=[];
-			var in_ports_object={};
-            in_ports_object['compound attributes']={};//fake a group
+			var in_ports_object=[];
+            //in_ports_object['compound attributes']={};//fake a group
 			//-----
 			
 			//if(false){
@@ -410,9 +410,12 @@ tentacle.selection = {
 						
                         //also add the pot to the result array
 						//in_ports_object[connection.to_port]=[connection.from_port , connection.from_node];//add input port to the object so I can add it back onto to the object being sent to php
-						in_ports_object['compound attributes'][connection.to_port]={};//[connection.from_port , connection.from_node];
+						/*in_ports_object['compound attributes'][connection.to_port]={};//[connection.from_port , connection.from_node];
                         in_ports_object['compound attributes'][connection.to_port].type='string';//i need to somehow know what I am grabbing here, incase it IS NOT a string
                         in_ports_object['compound attributes'][connection.to_port].exposed=1;//also need to find this info out based on what kind of node we are connecting to
+                        */
+                        //alert(connection.from_node+":"+connection.from_port+"::"+connection.to_node+":"+connection.to_port);
+                        in_ports_object.push(connection);
 
                         obj_jsoon.result[obj_jsoon.result.length] = {};
 						obj_jsoon.result[obj_jsoon.result.length-1][connection.to_port] = ['in'];
@@ -430,7 +433,7 @@ tentacle.selection = {
                         //just add to the array the name of the port it is from....
                         // i will need to add in error correction incase there is more than one result, which there might be for certain
 
-                        out_ports_object.push(connection.from_port);
+                        out_ports_object.push(connection);
 
 
 						//also add this to result object
@@ -506,27 +509,36 @@ tentacle.selection = {
             //now make the new connections
 			//connection.insert()
 			this.creating_compound_connections=[];
-			for (var outpo in out_ports_object){//for each out port in the new compound
+			for (var outpo = 0; outpo< out_ports_object.length; outpo++){
+            //for (var outpo in out_ports_object){//for each out port in the new compound
+                alert(outpo);
 				var con_data={};
-				con_data.from_node=tentacle.nodes.counter;
-				con_data.from_port=outpo;
-				con_data.to_node=out_ports_object[outpo][1];
-				con_data.to_port=out_ports_object[outpo][0];
-				con_data.index=tentacle.connections.counter+this.creating_compound_connections.length;
+				
+                con_data.from_node=tentacle.nodes.counter-1;
+				con_data.from_port = out_ports_object[outpo].from_port;//outpo;
+
+				con_data.to_node = out_ports_object[outpo].to_node;//out_ports_object[outpo][1];
+				con_data.to_port = out_ports_object[outpo].to_port;//out_ports_object[outpo][0];
+				con_data.index = tentacle.connections.counter+outpo;//this.creating_compound_connections.length;
 				con_data.color='';
+                con_data.to_port_minimized='';
 				this.creating_compound_connections.push(con_data);
 				//connection.insert(con_data);
 			}
-			for (var inpob in in_ports_object){
+            for(var inpob = 0; inpob< in_ports_object.length; inpob++){
+			//for (var inpob in in_ports_object){
+                //alert(inpob);
 				var con_data_b={};
-				con_data_b.from_node=in_ports_object[inpob][1];//node.counter;
-				con_data_b.from_port=in_ports_object[inpob][0];//inpo;
-				con_data_b.to_node=tentacle.nodes.counter;
-				con_data_b.to_port=inpo;
-				con_data_b.index=connection.counter+this.creating_compound_connections.length;
+				con_data_b.from_node=in_ports_object[inpob].from_node;//node.counter;
+				con_data_b.from_port=in_ports_object[inpob].from_port;//inpo;
+				con_data_b.to_node=tentacle.nodes.counter-1;
+				con_data_b.to_port=in_ports_object[inpob].to_port;
+				con_data_b.index=connection.counter+this.creating_compound_connections.length+inpob;
 				con_data_b.color='';
 				this.creating_compound_connections.push(con_data_b);
 			}
+            //i proboblay need to wait until the compound has been made before i go and make all this
+            //this.connect_new_compound();
 	        tentacle.console.log('this.compound()');
 		}
 	},
@@ -544,7 +556,12 @@ tentacle.selection = {
     },
 	'connect_new_compound':function(){
 		for(var i=0; i<this.creating_compound_connections.length; i++){
-			tentacle.connections.insert( new tentacle.connection(this.creating_compound_connections[i]) );
+            alert(this.creating_compound_connections[i].from_node+":"+this.creating_compound_connections[i].from_port+"::"+this.creating_compound_connections[i].to_node+":"+this.creating_compound_connections[i].to_port);
+            //alert(this.creating_compound_connections[i].from_port);
+           // alert(tentacle.html.node_in_port(this.creating_compound_connections[i].from_node,this.creating_compound_connections[i].from_port))
+			tentacle.connections.insert( new tentacle.connection(this.creating_compound_connections[i],event) );
 		}
+        this.creating_compound_connections=[];//clear out the array
+        this.creating_compound=false;//we are done making the compound, remove the flag that we are
 	}
 }

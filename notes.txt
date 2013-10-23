@@ -4,22 +4,32 @@
 ************************
 --alpha---------
 ------------------------------------------------------
---saving isnt grabbing the "content" ports, so when it comes back in, it doesnt have that info
 
 -compounds
-    --make compound
-        --connect outside connections
-        --inside not getting making node when openning (look like it has the data though)
+
+****
+	--working in the connections part of the compound creation
+	--------------------
+	--make compound
+		--if there is no in or out connections, it makes a ton of ports, for the array object. Need to stop that from happeneing
+        --inside not getting nodes made when openning (look like it has the data though)
+        	--infact the data looks almost exactly as it should.. its going to take some time to search out why it is fucking up
     
     --edit inputs and outputs
     --edit compounds name
 
     --save
+    --------------------
+
+
+
 
 ---saving bugged
 ---node "a" is not keeing the drop down for 'target' variable, but is keeping it for other drop downs?
 ---there is a permission issue when writing files. I just need to force it or something
-
+---saving isnt grabbing the "content" ports, so when it comes back in, it doesnt have that info
+---when creating a compound, i might need to make number attributes strings.. maybe
+---input ports with same name will fuck up. need to change port names at creation and assign proper connections
 
 
 *****************************
@@ -28,7 +38,7 @@
 
 
 -node search
--nodes are in folders
+-nodes in folders
 
 
 

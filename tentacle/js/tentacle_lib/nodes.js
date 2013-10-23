@@ -8,6 +8,8 @@ tentacle.nodes = {
         this.list.push( new tentacle.node() );
         this.list[ this.list.length-1 ].create(this.counter,type,data);
 		this.counter++;//if successful
+
+        //if(tentacle.selection.creating_compound) tentacle.selection.connect_new_compound();
     },
     'from_xml' : function(d){//this function comes from opening an xml file, and adding in the nodes
     	//this.terminal();

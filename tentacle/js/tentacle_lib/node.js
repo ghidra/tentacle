@@ -45,6 +45,9 @@ tentacle.node.prototype.replicate=function(d){//this makes a node from existing 
 		}
 	}
 
+	//now if we are making a compound, we need to reattach the connections here, after the node has been made
+	if(tentacle.selection.creating_compound) tentacle.selection.connect_new_compound();
+
 	tentacle.utilities.disable_selection( new_node );
 }
 //------------------------------------------
