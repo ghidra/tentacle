@@ -171,7 +171,7 @@ tentacle.selection = {
         }else{
             marquee.style.height=mo_po[1]-_this.marquee_start_y;
         }
-		tentacle.console.log('x:'+mo_po[0]+' y:'+mo_po[1]);
+		//tentacle.console.log('x:'+mo_po[0]+' y:'+mo_po[1]);
     },
     'marquee_stop':function(event){
 		var _this = tentacle.selection;
@@ -511,7 +511,7 @@ tentacle.selection = {
 			this.creating_compound_connections=[];
 			for (var outpo = 0; outpo< out_ports_object.length; outpo++){
             //for (var outpo in out_ports_object){//for each out port in the new compound
-                alert(outpo);
+               // alert(outpo);
 				var con_data={};
 				
                 con_data.from_node=tentacle.nodes.counter-1;
@@ -556,7 +556,7 @@ tentacle.selection = {
     },
 	'connect_new_compound':function(){
 		for(var i=0; i<this.creating_compound_connections.length; i++){
-            alert(this.creating_compound_connections[i].from_node+":"+this.creating_compound_connections[i].from_port+"::"+this.creating_compound_connections[i].to_node+":"+this.creating_compound_connections[i].to_port);
+           // alert(this.creating_compound_connections[i].from_node+":"+this.creating_compound_connections[i].from_port+"::"+this.creating_compound_connections[i].to_node+":"+this.creating_compound_connections[i].to_port);
             //alert(this.creating_compound_connections[i].from_port);
            // alert(tentacle.html.node_in_port(this.creating_compound_connections[i].from_node,this.creating_compound_connections[i].from_port))
 			tentacle.connections.insert( new tentacle.connection(this.creating_compound_connections[i],event) );

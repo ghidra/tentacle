@@ -13,8 +13,11 @@ tentacle.nodes = {
     },
     'from_xml' : function(d){//this function comes from opening an xml file, and adding in the nodes
     	//this.terminal();
+        //alert(this.otos(d[0]));
     	for (var i=0;i<d.length;i++){
+           // alert(otos(d[i]));
     		this.list.push( new tentacle.node() );
+            //d[i].index=this.counter;//force the numbering
     		this.list[this.counter].replicate(d[i]);
     		this.counter++;
     	}
@@ -31,7 +34,9 @@ tentacle.nodes = {
 		this.list[ this.get_index(id) ].inspect();
 	},
     'open_compound':function(id){
+        
         var c_id = this.list[ this.get_index(id) ].attributes.compound_id;
+        //alert(id+":"+c_id);
         tentacle.compounds.open(id,c_id);
     },
     'toggle_capsule' : function(id){
@@ -56,5 +61,13 @@ tentacle.nodes = {
 			}
 		}
 		return ind;
-	}
+	},
+    'otos':function(o){//object to string
+        s='';
+        for(var i in o){
+            s+=i+':'+o[i]+"\n";
+        }
+        return s;
+    }
+
 }

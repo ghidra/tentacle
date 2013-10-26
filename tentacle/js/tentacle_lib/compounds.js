@@ -17,7 +17,7 @@ tentacle.compounds = {
 	'seeking':false,
 
 	'open':function(index,compound_index){
-		
+		//
 		if(isNaN(index)){//this is a file compound
 
 		}else{//this is an embedded xompound
@@ -43,6 +43,7 @@ tentacle.compounds = {
 						//windows on chrome, but not here on mac
 						var d = transport.responseText.evalJSON(true);
 						//var d = JSON.parse(transport);
+						//alert(d[0]);
 
 						document.getElementById('composition').style.display='none';//setStyle({display:'none'});
 						document.getElementById('composition').id='composition_base';//setAttribute('id','composition_base');
@@ -55,12 +56,13 @@ tentacle.compounds = {
 						tentacle.compounds.open_terminal(d[2]);//this is just the execute node
                         tentacle.nodes.from_xml(d[0]);//put the property at the fromnt of the document
                         tentacle.connections.from_xml(d[1]);
+                        
 
 						//alert('something went right');
 						//tentacle.compound.level[ tentacle.compound.level.length ] = [tentacle.nodes.counter,last_connection_count,parseInt(embedded_id),index];//d[2];//giving some data to store for compounts, like how many nodes existed before, and connections, the array id in compounds, and the index of the compound that called it to be opened
 						
 						///////
-						/*tentacle.i_o.init_values();//init them values 
+						//tentacle.i_o.init_values();//init them values 
 
                         //for a second time do this loop just to set the capsule
                         //for(var i=0;i<d[2];i++){//because we set the connections then set the collapsed nodes as collapsed
@@ -68,9 +70,8 @@ tentacle.compounds = {
 							//NOW I JUST NEED TO TOGGLE THE CAPSULE WHEN READY
                       		///node.set_capsule(i);
                         //}
-                  		tentacle.selection.set_composition_dimensions();
+                  		//tentacle.selection.set_composition_dimensions();
 
-						*/
 					},
 					onFailure:function(){alert('something went wrong opening compound')}
 				}

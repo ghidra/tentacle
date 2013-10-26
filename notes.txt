@@ -1,6 +1,3 @@
-
---get this all in github
-
 ************************
 --alpha---------
 ------------------------------------------------------
@@ -14,6 +11,10 @@
 		--if there is no in or out connections, it makes a ton of ports, for the array object. Need to stop that from happeneing
         --inside not getting nodes made when openning (look like it has the data though)
         	--infact the data looks almost exactly as it should.. its going to take some time to search out why it is fucking up
+
+        	--IT LOOKS LIKE IT COULD BE THE TENTACLE COMPOUND OPEN NODE, THE EXECUTE NODE, MIGHT BE FUCKING UP DATA FOR
+        	THE NODE BEHIND IT
+        	--YEP THAT IS WHAT S HAPPENEING. IF I CREATE A NODE, AND DELETE IT, THE NODE AND CONNETION OFFSET IT OFF FOR SOME REASON!!!!!!!!!
     
     --edit inputs and outputs
     --edit compounds name

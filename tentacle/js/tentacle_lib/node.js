@@ -35,11 +35,13 @@ tentacle.node.prototype.create=function(i,t,d){//this makes a new node. creation
 tentacle.node.prototype.replicate=function(d){//this makes a node from existing data. read from xml or copied. replicate
 	//tentacle.console.log(d['type']);
 	this.attributes =  d;
-	var new_node = this.build()
+	//alert(tentacle.nodes.otos(d));
+	var new_node = this.build();
 	document.getElementById('composition').appendChild(new_node);
 	
 	if(d.type!='tentacle_compound_open'){
 		this.set_width();
+		//alert(d.top)
 		if( d.top==0 && d.left==0 || !d.top && !d.left){
 			tentacle.utilities.move_to_center( new_node );
 		}
