@@ -9,7 +9,7 @@ class a extends node_html{
 	var $framename='';
 	var $rel='none';
 	var $rev='none';
-	
+
 	var $path_options=array(
 		'http://',
 		'http://www.',
@@ -44,7 +44,7 @@ class a extends node_html{
 		'tag',
 		'friend'
 	);
-	
+
 	var $a_ports = array('a attributes'=>array(
 							'href'=>array('type'=>'string','exposed'=>1),
 							'path'=>array('type'=>'dropdown','exposed'=>0),
@@ -53,19 +53,19 @@ class a extends node_html{
 							'rel'=>array('type'=>'dropdown','exposed'=>0),
 							'rev'=>array('type'=>'string','exposed'=>1)
 						));
-						
+
 	function __construct(){
 		$this->append('a_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render($data,$nodes,$this->get_attributes($data,$nodes) );
 	}
 
 	//------------------------------
 	//the following functions build the attributes that along with the base attributes in the html tag
 	//------------------------------
-	function get_attributes($data,$nodes){		
+	function get_attributes($data,$nodes){
 		$s= $this->get_link($data,$nodes);
 		if($data['target']!='_self') $s.=$this->get_attribute_assembled($data,$nodes,'target');
 		$s.=$this->get_attribute_assembled($data,$nodes,'framename');

@@ -25,20 +25,20 @@ class form extends node_html{
 		$this->append('form_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		//return $this->get_tag_assembled( $data,$nodes,	$this->get_attributes($data,$nodes) );
 		return parent::render($data,$nodes,$this->get_attributes($data,$nodes) );
 	}
 	//--------
 	function get_attributes($data){
 		global $nodes;// this variable comes from the render.php execute function
-		
+
 		$s= $this->get_link($data);
 		$s.=$this->get_attribute_assembled($data,'method');
 		$s.=$this->get_attribute_assembled($data,'name');
-		
+
 		return $s;
-	
+
 	}
 	function get_link($data){//this is basically a duplicate of parent onject get attribute asembled
 		global $nodes;// this variable comes from the render.php execute function
@@ -51,7 +51,7 @@ class form extends node_html{
 			if(is_string($data['action'])){
 				$s.=$data['action'].'"';
 			}else{
-				$s.=$nodes[$data['action']['index']][$data['port_action']].'"';	
+				$s.=$nodes[$data['action']['index']][$data['port_action']].'"';
 			}
 		}
 		return $s;

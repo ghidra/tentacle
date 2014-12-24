@@ -6,7 +6,7 @@ class base extends node_html{
 	var $href='';
 	var $path='http://www.';
 	var $target='_self';
-	
+
 	var $path_options=array(
 		'http://',
 		'http://www.',
@@ -30,7 +30,7 @@ class base extends node_html{
 		$this->append('base_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		//global $nodes;
 		$s='<base';
 		if(strlen($data['href'])>0){

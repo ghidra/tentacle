@@ -18,7 +18,7 @@ class db_movie extends node_html{
 		$this->append('db_movie_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		$tag_data=$this->get_base_attributes($data,$nodes);//this assembles the tag data, but I'm not actually using it here yet
 
 		$link=explode('/',$data['link']);
@@ -27,9 +27,9 @@ class db_movie extends node_html{
 		$s.='<param name="src" value=../media/mov/'.$link[1].' >';
 		$s.='<param name="autoplay" value="false">';
 		$s.='<param name="controller" value="true">';
-		$s.='<embed src=../media/mov/'.$link[1].' width=320 height=256 autoplay="false" controller="true" border="0" pluginspage="http://www.apple.com/quicktime/download/""></embed>';		
+		$s.='<embed src=../media/mov/'.$link[1].' width=320 height=256 autoplay="false" controller="true" border="0" pluginspage="http://www.apple.com/quicktime/download/""></embed>';
 		$s.='</object>';
-		
+
 		$nodes[$data['index']]['result']=$s;
 		return $nodes[$data['index']];//return the entire node, with the result
 	}

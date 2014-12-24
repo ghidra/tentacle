@@ -7,7 +7,7 @@ class meta extends node_html{
 	var $name='none';
 	var $content='';
 	var $httpequiv='none';
-	
+
 	var $name_options=array(
 		'none',
 		'author',
@@ -30,7 +30,7 @@ class meta extends node_html{
 		'refresh',
 		'set-cookie'
 	);
-	
+
 	var $meta_ports=array('meta attributes'=>array(
 			'name'=>array('type'=>'dropdown','exposed'=>0),
 			'content'=>array('type'=>'string','exposed'=>1),
@@ -41,18 +41,19 @@ class meta extends node_html{
 		$this->append('meta_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes='',$local_inner=''){
 		$nodes[$data['index']]['result']='<meta'.$this->get_attributes($data,$nodes).'/>';
-		return $nodes[$data['index']];//return the entire node, with the result	
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 	//------
-	function get_attributes($data,$nodes){		
+	function get_attributes($data,$nodes){
+		$s='';
 		if($data['name']!='none') $s.=' name="'.$data['name'].'"';
 		if($data['httpequiv']!='none') $s.=' http-equiv="'.$data['httpequiv'].'"';
-		$s.=' content="'.$data['content'].'"';
+		$s.=' content="'.$this->array_value($data,'content').'"';//$data['content'] was returning errors
 
 		return $s;
-	
+
 	}
 }
 ?>

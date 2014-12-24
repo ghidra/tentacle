@@ -8,7 +8,7 @@ class link_ext extends node_html{
 	var $ftype='css';
 	var $rel='stylesheet';
 	var $rev='none';
-	
+
 	var $media_options=array(
 		'screen',
 		'tty',
@@ -89,16 +89,17 @@ class link_ext extends node_html{
 		$this->append('link_ext_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes='',$local_inner=''){
+		//local_attributes and local_inner, may not be used, but it maintains the strict standard from the node_html.php parent class
 		$nodes[$data['index']]['result']='<link '.$this->get_attributes($data,$nodes).$this->get_base_attributes($data,$nodes).' />';
-		return $nodes[$data['index']];//return the entire node, with the result	
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 	//------
-	function get_attributes($data,$nodes){		
+	function get_attributes($data,$nodes){
 		$s= $this->get_link($data,$nodes);
-		if($data['target']!='_self') $s.=$this->get_attribute_assembled($data,$nodes,'target');//undifined index 'target'
+		if( !$this->check_array_value($data,'target','_self') ) $s.=$this->get_attribute_assembled($data,$nodes,'target');//target was not found, so we are using the check_array_value_function, to check that target exists first, $data['target']!='_self'
 		//$s.=$this->get_attribute_assembled($data,$nodes,'target');
-		$s.=' type="'.$this->type_options[$data['ftype']].'"';
+		$s.=' type="'.$this->ftype_options[$data['ftype']].'"';
 		if($data['rev']!='none') $s.=$this->get_attribute_assembled($data,$nodes,'rev');
 		if($data['rel']!='none') $s.=$this->get_attribute_assembled($data,$nodes,'rel');
 		return $s;
@@ -113,7 +114,7 @@ class link_ext extends node_html{
 			if(is_string($data['href'])){
 				$s.=$data['href'].'"';
 			}else{
-				$s.=$nodes[$data['href']['index']][$data['port_href']].'"';	
+				$s.=$nodes[$data['href']['index']][$data['port_href']].'"';
 			}
 		}
 		return $s;

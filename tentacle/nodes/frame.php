@@ -4,7 +4,7 @@ require_once node_root.'node_html.php';
 
 class frame extends node_html{
 	var $type='frame';
-	
+
 	var $src='';
 	var $srcpath='local';
 	var $longdesc='';
@@ -14,7 +14,7 @@ class frame extends node_html{
 	var $marginheight=0;
 	var $noresize='false';
 	var $scrolling='auto';
-	
+
 	var $srcpath_options=array(
 		'http://',
 		'http://www.',
@@ -45,27 +45,27 @@ class frame extends node_html{
 		$this->append('frame_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render( $data,$nodes,$this->get_attributes($data,$nodes) );
 	}
 	//--------
-	
+
 	function get_attributes($data,$nodes){
 		//global $nodes;// this variable comes from the render.php execute function
-		
+
 		$s= $this->get_link_attribute($data,$nodes,'src','srcpath');//attribute and path a p
 		$s.= $this->get_link_attribute($data,$nodes,'longdesc','descpath');//attribute and path a p
 		$s.=$this->get_attribute_assembled($data,$nodes,'name');
 
 		if($data['frameborder']!='true') $s.=' frameborder="0"';
 		if($data['noresize']!='false') $s.=' noresize="noresize"';
-		
+
 		if($data['marginwidth']>0) $s.=' marginwidth="'.$data['marginwidth'].'px"';
 		if($data['marginwidth']>0) $s.=' marginheight="'.$data['marginheight'].'px"';
 		if($data['scrolling']!='auto') $s.=$this->get_attribute_assembled($data,$nodes,'scrolling');
 
 		return $s;
-	
+
 	}
 	function get_link_attribute($data,$nodes,$a,$p){//this is basically a duplicate of parent onject get attribute asembled
 		//global $nodes;// this variable comes from the render.php execute function
@@ -78,7 +78,7 @@ class frame extends node_html{
 			if(is_string($data[$a])){
 				$s.=$data[$a].'"';
 			}else{
-				$s.=$nodes[$data[$a]['index']][$data['port_'.$a]].'"';	
+				$s.=$nodes[$data[$a]['index']][$data['port_'.$a]].'"';
 			}
 		}
 		return $s;

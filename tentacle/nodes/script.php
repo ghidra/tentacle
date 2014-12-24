@@ -8,11 +8,11 @@ class script extends node_html{
 	var $body='';
 
 	var $number_ports=0;
-	
+
 	var $stype_options=array(
 		'javascript'=>'text/javascript'
 	);
-	
+
 	var $script_ports = array('script attributes'=>array(
 			'src'=>array('type'=>'string','exposed'=>1),
 			'stype'=>array('type'=>'dropdown','exposed'=>0),
@@ -24,14 +24,14 @@ class script extends node_html{
 		$this->append_ignore(array('id','class','title','style','accesskey','tabindex','dir','lang','xmllang'));
 		//parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		if(strlen($data['src'])>0){
 			$s=' src="'.$data['src'].'"';
 		}else{
-			$s='';	
+			$s='';
 		}
 		$nodes[$data['index']]['result']='<script type="'.$this->stype_options[$data['stype']].'"'.$s.'>'.$data['body'].'</script>';
-		return $nodes[$data['index']];//return the entire node, with the result	
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 }
 ?>

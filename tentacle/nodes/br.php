@@ -5,9 +5,9 @@ class br extends node_html{
 	var $type='br';
 	var $number_ports = 0;
 
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		$nodes[$data['index']]['result']='<br>';
-		return $nodes[$data['index']];//return the entire node, with the result	
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 }
 ?>

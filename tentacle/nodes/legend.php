@@ -13,7 +13,7 @@ class legend extends node_html{
 		$this->append('legend_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render( $data,$nodes,'',$this->get_port_data($data,$nodes,'legend') );
 	}
 }

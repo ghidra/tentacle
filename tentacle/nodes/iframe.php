@@ -3,7 +3,7 @@ require_once node_root.'node_html.php';
 
 class iframe extends node_html{
 	var $type='iframe';
-	
+
 	var $src='';
 	var $srcpath='local';
 	var $longdesc='';
@@ -17,7 +17,7 @@ class iframe extends node_html{
 	var $marginheight=0;
 	var $noresize='false';
 	var $scrolling='auto';
-	
+
 	var $srcpath_options=array('http://','http://www.','local');
 	var $descpath_options=array('http://','http://www.','local');
 
@@ -53,24 +53,24 @@ class iframe extends node_html{
 	function render($data,$nodes){
 		return parent::render( $data,$nodes,$this->get_attributes($data,$nodes) );
 	}
-	
-	function get_attributes($data,$nodes){		
+
+	function get_attributes($data,$nodes,$local_attributes = '', $local_inner = ''){		
 		$s= $this->get_link_attribute($data,$nodes,'src','srcpath');//attribute and path a p
 		$s.= $this->get_link_attribute($data,$nodes,'longdesc','descpath');//attribute and path a p
 		$s.=$this->get_attribute_assembled($data,$nodes,'name');
 
 		if($data['frameborder']!='true') $s.=' frameborder="0"';
 		if($data['noresize']!='false') $s.=' noresize="noresize"';
-		
+
 		if($data['marginwidth']>0) $s.=' marginwidth="'.$data['marginwidth'].'px"';
 		if($data['marginheight']>0) $s.=' marginheight="'.$data['marginheight'].'px"';
 		//if($data['scrolling']!='auto') $s.=$this->get_attribute_assembled($data,$nodes,'scrolling');
 
 		if($data['width']>0) $s.=' width="'.$data['width'].$data['wmeasure'].'"';
 		if($data['height']>0) $s.=' height="'.$data['height'].$data['hmeasure'].'"';
-		
+
 		return $s;
-	
+
 	}
 	function get_link_attribute($data,$nodes,$a,$p){//this is basically a duplicate of parent onject get attribute asembled
 		$s='';
@@ -82,7 +82,7 @@ class iframe extends node_html{
 			if(is_string($data[$a])){
 				$s.=$data[$a].'"';
 			}else{
-				$s.=$nodes[$data[$a]['index']][$data['port_'.$a]].'"';	
+				$s.=$nodes[$data[$a]['index']][$data['port_'.$a]].'"';
 			}
 		}
 		return $s;

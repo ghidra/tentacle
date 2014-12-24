@@ -16,16 +16,16 @@ class lists extends node_html{
 		$this->append('lists_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		$s='<'.$this->list_options[$data['lists']].$this->get_base_attributes($data,$nodes).'>';
-		
+
 		for($i=0;$i<=$data['number_ports']-1;$i++){//from ports
 			$s.= $nodes[$data['content'.$i]['index']][$data['port_content'.$i]];
 		}
 		$s.='</'.$this->list_options[$data['lists']].'>';
-		
+
 		$nodes[$data['index']]['result']=$s;
-		return $nodes[$data['index']];//return the entire node, with the result		
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 }
 ?>

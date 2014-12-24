@@ -14,7 +14,7 @@ class label extends node_html{
 		$this->append('label_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render( $data,$nodes,$this->get_attribute_assembled($data,$nodes,'for'),$this->get_port_data($data,$nodes,'label') );
 	}
 }

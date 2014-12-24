@@ -14,9 +14,9 @@ class acronym extends node_html{
 		parent::__construct();
 	}
 
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render($data,$nodes,'',$this-get_port_data($data,$nodes,'full'));
 	}
-	
+
 }
 ?>

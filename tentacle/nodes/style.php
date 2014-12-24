@@ -23,7 +23,7 @@ class style extends node_html{
 		$this->append('style_ports');
 		$this->append_ignore(array('id','class','title','style','accesskey','tabindex','dir','lang','xmllang'));
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		$s='<style type="text/css"';
 		if($data['media']!='screen') $s.=' media="'.$data['media'].'"';
 		$s.='>'."\n";
@@ -31,9 +31,9 @@ class style extends node_html{
 			$s.= $nodes[$data['content'.$i]['index']][$data['port_content'.$i]];
 		}
 		$s.='</style>'."\n";
-		
+
 		$nodes[$data['index']]['result']=$s;
-		return $nodes[$data['index']];//return the entire node, with the result	
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 }
 ?>

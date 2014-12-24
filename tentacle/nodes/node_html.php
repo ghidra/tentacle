@@ -2,35 +2,35 @@
 require_once node_root.'node.php';
 
 class node_html extends node{
-	
+
 	var $id='';
 	var $class='';
 	var $style='';
 	var $title='';
 	var $name='';
-	
+
 	var $accesskey='';
 	var $tabindex=0;
 	var $dir='';
 	var $lang='';
 	var $xmllang='';
-	
+
 	var $color_main = '#889917';
-	var $color_alt = '#378C52';	
-	
+	var $color_alt = '#378C52';
+
 	var $html_in_ports = array('html_attributes'=>array(
 									'id'=>array('type'=>'string','exposed'=>1),
 									'title'=>array('type'=>'string','exposed'=>1),
 									'class'=>array('type'=>'string','exposed'=>1),
 									'style'=>array('type'=>'string','exposed'=>1)
 								));//array('id','title','class','style');
-								
+
 	//var $html_in_ports_type = array('string','string','string','string');
-	
+
 	function __construct(){
 		//append to ignore array on creation, for now I want to bypass these attributes
 		$this->append('html_in_ports');
-		//$this->in_ports = array_merge($this->in_ports,$this->html_in_ports); 
+		//$this->in_ports = array_merge($this->in_ports,$this->html_in_ports);
 		$this->append_ignore(array('accesskey','tabindex','dir','lang','xmllang'));//not using these right now
 		//$this->ignore = array_merge($this->ignore,array('accesskey','tabindex','dir','lang','xmllang','html_in_ports','html_in_ports_type'));
 	}
@@ -46,7 +46,7 @@ class node_html extends node{
 		}*/
 		$s.=$local_inner;
 		$s.='</'.$data['type'].'>';
-		
+
 		$nodes[$data['index']]['result']=$s;
 		return $nodes[$data['index']];//return the actual node with result
 	}
@@ -54,7 +54,7 @@ class node_html extends node{
 	//these are helper render functions
 	function get_attribute_assembled($data,$nodes,$attr){
 		$s='';
-		if ($data[$attr]) {// i shoud be using isset here, but it doesn't work right, because it still evaluates and make emppty attributes, and that is wrong
+		if (array_key_exists($attr, $data)) {// i shoud be using isset here, but it doesn't work right, because it still evaluates and make emppty attributes, and that is wrong
 			$s.= ' '.$attr.'="';
 			$s.= $this->get_port_data( $data,$nodes,$attr ).'"';
 		}
@@ -66,7 +66,7 @@ class node_html extends node{
 		$s.=$this->get_attribute_assembled($data,$nodes,'title');
 		$s.=$this->get_attribute_assembled($data,$nodes,'class');
 		$s.=$this->get_attribute_assembled($data,$nodes,'style');
-		
+
 		return $s;
 	}
 	//-------------------------
@@ -74,10 +74,10 @@ class node_html extends node{
 		$this->index.='_shittthitht';
 		return parent::assemble();
 	}*/ //the above works
-	
-	
-	
-	
+
+
+
+
 	/*function assign_base_values($values){
 		$this->result='';
 		$this->index=$values['index'];
@@ -86,13 +86,13 @@ class node_html extends node{
 		$this->left=$values['left'];
 		$this->top=$values['top'];
 		$this->number_ports=$values['number_ports'];
-	
+
 		$this->id=$values['id'];
 		$this->class=$values['class'];
 		$this->style=$values['style'];
 		$this->title=$values['title'];
 		$this->name=$values['name'];
-		
+
 		$this->accesskey=$values['accesskey'];
 		$this->tabindex=$values['tabindex'];
 		$this->dir=$values['dir'];
@@ -117,7 +117,7 @@ class node_html extends node{
 	//------------------------------------
 	//	 get_attribute_assembled : builds the attribute, called from get_base_attibutes
 	//   get_base_attributes : assemble all the base attributes from data
-	//	
+	//
 	//	get_tag_assembled : assembles all the shit together
 	//
 	//   called from render
@@ -137,7 +137,7 @@ class node_html extends node{
 			if(is_string($data[$attr])){
 				$s.=$data[$attr];
 			}else{
-				$s.=$nodes[$data[$attr]['index']][$data['port_'.$attr]];	
+				$s.=$nodes[$data[$attr]['index']][$data['port_'.$attr]];
 			}
 		}
 		return $s;
@@ -150,7 +150,7 @@ class node_html extends node{
 			if(is_string($data[$attr])){
 				$s.=$data[$attr].'"';
 			}else{
-				$s.=$nodes[$data[$attr]['index']][$data['port_'.$attr]].'"';	
+				$s.=$nodes[$data[$attr]['index']][$data['port_'.$attr]].'"';
 			}
 		}
 		return $s;
@@ -158,26 +158,26 @@ class node_html extends node{
 	function get_base_attributes($data,$nodes){
 		//global $nodes;// this variable comes from the render.php execute function
 		$s='';//hold the tag data that is pligged in i guess
-		
+
 		$s.=$this->get_attribute_assembled($data,$nodes,'id');
 		$s.=$this->get_attribute_assembled($data,$nodes,'title');
 		$s.=$this->get_attribute_assembled($data,$nodes,'class');
 		$s.=$this->get_attribute_assembled($data,$nodes,'style');
-		
+
 		return $s;
 	}
 	function get_tag_assembled($data,$nodes,$local_attributes='',$local_inner=''){
 		//global $nodes;// this variable comes from the render.php execute function
 		$s='<'.$data['type'].$this->get_base_attributes($data,$nodes).' '.$local_attributes.'>';
-		
+
 		for($i=0;$i<=$data['number_ports']-1;$i++){//from ports
 			$s.= $nodes[$data['content'.$i]['index']][$data['port_content'.$i]];
 		}
 		$s.=$local_inner;
 		$s.='</'.$data['type'].'>';
-		
+
 		$nodes[$data['index']]['result']=$s;
-		return $nodes[$data['index']];//return the actual node with result 
+		return $nodes[$data['index']];//return the actual node with result
 	}
 	//------------------------------------
 	//   content_ports : this is the loop that makes content ports on node creation
@@ -196,7 +196,7 @@ class node_html extends node{
 	//------------------------------------
 	//   translate : used the data sent from javascript via node_handler
 	//   and puts all the values into an associative array for easy grabing
-	// 	 called from INSPECT 
+	// 	 called from INSPECT
 	//------------------------------------
 	function translate($data){
 		$a=array();

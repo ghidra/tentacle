@@ -10,14 +10,14 @@ class div extends node_html{
 								));*/
 	/*function __construct(){
 		//parent::__construct();
-		$this->in_ports = array_merge($this->in_ports,$this->test_ports); 
+		$this->in_ports = array_merge($this->in_ports,$this->test_ports);
 	}*/
 	/*function assemble(){
 		//$this->index='root';
 		return parent::assemble();
 	}*/
 	//render the node
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render($data,$nodes);
 	}
 }

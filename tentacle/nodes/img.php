@@ -3,19 +3,19 @@ require_once node_root.'node_html.php';
 
 class img extends node_html{
 	var $type='img';
-	
+
 	var $href='';
 	var $path='local';
-	
+
 	var $alt='';
-	
+
 	var $path_options=array(
 		'http://',
 		'http://www.',
 		'local'
 	);
 	var $number_ports=0;
-	
+
 	var $img_ports=array('img attributes'=>array(
 			'href'=>array('type'=>'string','exposed'=>1),
 			'path'=>array('type'=>'dropdown','exposed'=>0),
@@ -26,7 +26,7 @@ class img extends node_html{
 		$this->append('img_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		$attr=$this->get_base_attributes($data,$nodes);
 		$nodes[$data['index']]['result']='<img'.$attr.' src="'.$this->get_link($data,$nodes).'" alt="'.$data['alt'].'">';
 		return $nodes[$data['index']];
@@ -41,7 +41,7 @@ class img extends node_html{
 			if(is_string($data['href'])){
 				$s.=$data['href'];
 			}else{
-				$s.=$nodes[$data['href']['index']][$data['port_href']];	
+				$s.=$nodes[$data['href']['index']][$data['port_href']];
 			}
 		}
 		return $s;

@@ -5,7 +5,7 @@ class blockquote extends node_html{
 	var $type='blockquote';
 	var $cite='';
 	var $path='http://www.';
-	
+
 	var $path_options=array(
 		'http://',
 		'http://www.',
@@ -21,7 +21,7 @@ class blockquote extends node_html{
 		$this->append('blockquote_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		//$this->get_tag_assembled( $data, $this->get_link($data,$nodes) );
 		return parent::render($data,$nodes,$this->get_link($data,$nodes) );
 
@@ -38,7 +38,7 @@ class blockquote extends node_html{
 			if(is_string($data['cite'])){
 				$s.=$data['cite'].'"';
 			}else{
-				$s.=$nodes[$data['cite']['index']][$data['port_cite']].'"';	
+				$s.=$nodes[$data['cite']['index']][$data['port_cite']].'"';
 			}
 		}
 		return $s;

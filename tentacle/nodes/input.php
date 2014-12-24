@@ -3,18 +3,18 @@ require_once node_root.'node_html.php';
 
 class input extends node_html{
 	var $type='input';
-	
+
 	var $input='text';
 	var $size=20;
 	var $disabled='false';
-	
+
 	var $src='';//for submit button
 	var $path='local';
 	var $readonly='false';//only for text input
 	var $maxlength=20;//only for text input
 	var $checked='false';//checkbox only
 	var $alt='';//image only
-	
+
 	var $path_options=array(
 		'http://',
 		'http://www.',
@@ -44,19 +44,19 @@ class input extends node_html{
 			'checked'=>array('type'=>'boolean','exposed'=>0),
 			'alt'=>array('type'=>'string','exposed'=>1),
 		));
-	
+
 	function __construct(){
 		$this->append('input_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		//global $nodes;// this variable comes from the render.php execute function
 		$s='<input type='.$data['input'].$this->get_base_attributes($data,$nodes);
 		$s.=$this->get_attribute_assembled($data,$nodes,'value');
 		$s.=$this->get_attribute_assembled($data,$nodes,'name');
 		if($data['size']!=20) $s.=$this->get_attribute_assembled($data,$nodes,'size');
 		if($data['disabled']!='false') $s.=' disabled="disabled"';
-		
+
 		if($data['input']=='text'){
 			if($data['readonly']!='false') $s.=' readonly="readonly"';
 			if($data['maxlength']!=20) $s.=$this->get_attribute_assembled($data,$nodes,'maxlength');
@@ -69,9 +69,9 @@ class input extends node_html{
 		 	$s.=$this->get_attribute_assembled($data,$nodes,'alt');
 		}
 		$s.='/>';
-		
-		$nodes[$data['index']]['result']=$s;		
-		return $nodes[$data['index']];//return the entire node, with the result	
+
+		$nodes[$data['index']]['result']=$s;
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 	//--------
 	function get_link($data,$nodes){//this is basically a duplicate of parent onject get attribute asembled
@@ -85,7 +85,7 @@ class input extends node_html{
 			if(is_string($data['src'])){
 				$s.=$data['src'].'"';
 			}else{
-				$s.=$nodes[$data['src']['index']][$data['port_src']].'"';	
+				$s.=$nodes[$data['src']['index']][$data['port_src']].'"';
 			}
 		}
 		return $s;

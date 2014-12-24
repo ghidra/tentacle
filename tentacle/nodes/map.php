@@ -10,7 +10,7 @@ class map extends node_html{
 		$this->append('map_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		return parent::render( $data,$nodes,$this->get_attribute_assembled($data,$nodes,'name') );
 	}
 }

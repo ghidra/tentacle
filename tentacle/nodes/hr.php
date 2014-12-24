@@ -8,9 +8,9 @@ class hr extends node_html{
 	function __construct(){
 		parent::__construct();
 	}
-	function render($data,$nodes){
+	function render($data,$nodes,$local_attributes = '', $local_inner = ''){
 		//$nodes[$data['index']]['result']='<hr'.$this->get_base_attributes($data,$nodes).' />';
-		//return $nodes[$data['index']];//return the entire node, with the result	
+		//return $nodes[$data['index']];//return the entire node, with the result
 		return parent::render($data,$nodes);
 	}
 }
