@@ -1,4 +1,11 @@
 <?php
+//REPORT ERRORSFOR DEBUGGIN
+
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
+///
 require_once 'check_login.php';
 check_login();
 require_once 'test_speed.php';
@@ -18,7 +25,7 @@ require_once 'path.php';//I only need this cause I am calling mysql which needs 
 </head>
 <body>
 <!--**********************************-->
-<?php 
+<?php
 $mysql=new mysql();//get a mysql object
 $node_menu = new allowed_nodes();
 

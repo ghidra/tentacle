@@ -1,4 +1,11 @@
 <?php
+//REPORT ERRORS FOR DEBUGGIN
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
+//
+include_once 'path.php';
 include_once 'render_handler.php';
 /*******************************************************************************************************************************************/
 $file = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : 'browse';			//get the passed node variable

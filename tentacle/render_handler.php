@@ -5,15 +5,15 @@ include_once 'xml_file_browser.php';
 
 
 class render_handler{
-	
+
 	var $connections=array();
 	var $nodes=array();
 	var $result=array();
 	var $input = array();
 	var $embedded=array();
-	
+
 	function render_handler(){}
-	//final call, actual render output 
+	//final call, actual render output
 	function output($node){
 		echo $this->get_output($node);
 	}
@@ -25,12 +25,12 @@ class render_handler{
 		reset ($node);												//reset the pointer (i don't know)
 		while(list($key,$val) = each($node)) {						//for each of the values in this node, seperate into key and val
 			//														//key are, id, type, class, top, left, etc.
-			//echo "1)".$key.":".$val."<br />";						//also includes the ports plugged into. usually named content0, content1, etc	
+			//echo "1)".$key.":".$val."<br />";						//also includes the ports plugged into. usually named content0, content1, etc
 			if(is_array($val)){										//if the val is an array
 				//													//the first time it is the execute node, with nothing but a number and an array
-				//													//each time after that, it is a node, plugged into current node	
+				//													//each time after that, it is a node, plugged into current node
 				reset($this->connections);
-				while(list($key_b,$val_b) = each($this->connections)) {	//look at the connections, and put what is connected into the 
+				while(list($key_b,$val_b) = each($this->connections)) {	//look at the connections, and put what is connected into the
 					//												//looop through connections
 					if($this->connections[$key_b]['to_node']===$val['index']){//if to node pointer points to node that we are on, we need to append
 						//echo '2)**append_connection:'.$key_b.'<br />';
@@ -40,20 +40,20 @@ class render_handler{
 						//}
 					}
 				}
-				//echo '4)recurse the connections<br /><br />';	
+				//echo '4)recurse the connections<br /><br />';
 				$this->execute($val);										//recurse, now that connections are loaded in
-				//echo '5)render';													//this will crawl all thw way down the tree and plug in all the nodes				
+				//echo '5)render';													//this will crawl all thw way down the tree and plug in all the nodes
 				if( substr($val['type'],0,1)=='[' && substr($val['type'],-1,1)==']' ){//if this is an embedded compound
 					include_once node_root.'tentacle_compound.php';
 					//^^^^^^^^^^^^^^^^^^^^^^^^^
 					$newnode = new tentacle_compound();
 				}else{
-					include_once node_root.$val['type'].'.php';			//now make sure the node code is avilable., and create the means to make the code 
+					include_once node_root.$val['type'].'.php';			//now make sure the node code is avilable., and create the means to make the code
 					//^^^^^^^^^^^^^^^^^^^^^^^^^
 					$newnode= new $val['type'];							//make an object to build the data
 																		//send the current node, and get means to make code
 				}
-				$this->nodes[$val['index']]=$newnode->render($val,$this->nodes);//set the node array at the index (root,0,1,2,etc) and render is and return it.		
+				$this->nodes[$val['index']]=$newnode->render($val,$this->nodes);//set the node array at the index (root,0,1,2,etc) and render is and return it.
 			}
 		}
 	}
@@ -68,10 +68,10 @@ class render_handler{
 		$phantom_id = $node_count-1;//the previously created phantom node
 		$embedded_id = $compound['index'];
 		$embedded_set = substr( $compound['type'] ,-2,1);//set the embedded array id
-		
+
 		//i need to set connections going TO the root node to the phantom node
-		//i need to set connections going FROMthe root node to the compound		
-		
+		//i need to set connections going FROMthe root node to the compound
+
 		//loop through connections
 		reset( $this->embedded[$embedded_set]->connections );//begin looping through compound connections to update the connection
 		while( list($k,$v)=each($this->embedded[$embedded_set]->connections) ){
@@ -87,7 +87,7 @@ class render_handler{
 				$this->embedded[$embedded_set]->connections[$k]['to_node'] += $node_count;
 			}
 			//now add the connections to the main array
-			array_push( $this->connections, array('from_node'=>$this->embedded[$embedded_set]->connections[$k]['from_node'],'to_node'=>$this->embedded[$embedded_set]->connections[$k]['to_node'],'from_port'=>$this->embedded[$embedded_set]->connections[$k]['from_port'],'to_port'=>$this->embedded[$embedded_set]->connections[$k]['to_port']));	
+			array_push( $this->connections, array('from_node'=>$this->embedded[$embedded_set]->connections[$k]['from_node'],'to_node'=>$this->embedded[$embedded_set]->connections[$k]['to_node'],'from_port'=>$this->embedded[$embedded_set]->connections[$k]['from_port'],'to_port'=>$this->embedded[$embedded_set]->connections[$k]['to_port']));
 		}
 		//-----now loop thorught the embedded node to include it
 		reset( $this->embedded[ $embedded_set ]->nodes );
@@ -104,7 +104,7 @@ class render_handler{
 		reset($network->nodes);
 		while( list($k,$v) = each($network->nodes) ){//loop network
 			if( $network->nodes[$k]['read_type'] == 'embedded' ){//if embedded
-				
+
 				//make a phantom node
 				$pid = count($this->nodes);
 				$this->nodes[$pid]['read_type']='node';
@@ -114,7 +114,7 @@ class render_handler{
 				//re route connections from compoud to be from this phantom node
 				reset($network->connections);
 				while( list($kb,$vb) = each($network->connections) ){
-					if( $network->connections[$kb]['from_node'] == $network->nodes[$k]['index'] ){ 
+					if( $network->connections[$kb]['from_node'] == $network->nodes[$k]['index'] ){
 						$network->connections[$kb]['from_node'] = $pid;
 						$this->nodes[$pid][ $network->connections[$kb]['from_port'] ]='';//make the port that is ceoming from most likely result
 						//$network->connections[$kb]['from_port']=$network->connections[$kb]['from_port'].'_string';//rewire where the data comes from
@@ -125,9 +125,9 @@ class render_handler{
 				$this->unfold( $network->nodes[$k] );//unfold the embedded compound into main loop
 				//find more compounds
 				$this->find_compounds( $this->embedded[ substr($network->nodes[$k]['type'] ,-2,1) ] );//find compounds in the embedded compound
-			
+
 				//unset($this->nodes[$k]);
-				
+
 			}
 		}
 	}
