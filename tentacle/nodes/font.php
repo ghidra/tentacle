@@ -17,9 +17,9 @@ class font extends font_base{
 		$this->append('font_ports');
 		parent::__construct();
 	}
-	function render($data,$nodes){		
+	function render($data,$nodes){
 		$s='font: ';//set the css tag thing border, border-bottom
-		
+
 		if($data['style']!='normal'){
 			$s.=$data['style'].' ';
 		}
@@ -36,10 +36,13 @@ class font extends font_base{
 		}
 		//i'm leaving out lineheight length for now
 		$s.=$this->family_options[$data['family']].';';
-		
-		$nodes[$data['index']]['result'].=$s;
+
+		if(array_key_exists('result',$nodes[$data['index']])) {
+			$nodes[$data['index']]['result'].=$s;
+		}
+
 		//$nodes[$data['index']]['result'].='background:'.$data['color'].' url('.$clean_link.') '.$data['repeat'].' '.$data['attachment'].' '.$data['position'].';';
-		return $nodes[$data['index']];//return the entire node, with the result	
+		return $nodes[$data['index']];//return the entire node, with the result
 	}
 }
 ?>

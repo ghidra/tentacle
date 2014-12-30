@@ -45,7 +45,9 @@ class format_text extends node_html{
 		$s='<'.$this->format_options[$data['format']].$this->get_base_attributes($data,$nodes).'>';
 
 		for($i=0;$i<=$data['number_ports']-1;$i++){
-			$s.= $nodes[$data['content'.$i]['index']][$data['port_content'.$i]];
+			if(array_key_exists('port_content'.$i,$data)){
+				$s.= $nodes[$data['content'.$i]['index']][$data['port_content'.$i]];
+			}
 		}
 		$s.='</'.$this->format_options[$data['format']].'>';
 

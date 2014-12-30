@@ -96,7 +96,10 @@ class node{
 	function get_ports_data($data,$nodes){
 		$s='';
 		for($i=0;$i<=$data['number_ports']-1;$i++){//from ports
-			$s.= $nodes[$data[$this->ports.$i]['index']][$data['port_'.$this->ports.$i]];
+			if(array_key_exists('port_'.$this->ports.$i,$data)){
+				$s.= $nodes[ $data[$this->ports.$i]['index'] ][ $data['port_'.$this->ports.$i] ];
+			}
+			//$s.= $this->check_array_value( $nodes, $data[$this->ports.$i]['index'], $data['port_'.$this->ports.$i] );
 		}
 		return $s;
 	}
